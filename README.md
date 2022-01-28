@@ -370,3 +370,30 @@ link_to "Cadastre-se",
 image_tag url
 
 ```
+
+# Ambientes Rails
+Documentação: http://guides.rubyonrails.org/configuring.html#creating-rails-environments
+- Produção
+- Desenvolvimento
+- Teste
+
+Subir o projeto em um determinado ambiente _RAILS_ENV=production_ ou _-e production_
+
+# Generator
+Exibir todas as opções: _rails g_ ou _rails generator_
+
+Exemplo:
+```ruby
+# Criar o controller
+rails g controllor teste
+# Excluir o controller
+rails d controller teste
+```
+
+As Views são criadas a partir da geração do controller passando as actions como parâmetro.
+
+Exemplo:
+````ruby
+# A view index será criada a partir do momento que informamos no gerador
+rails g controller teste index
+```

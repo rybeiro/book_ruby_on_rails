@@ -298,9 +298,10 @@ Pesquisar na internet por database.yml mysql
 Modelagem de banco de dados é a base para criação do banco de dados.
 
 ##### Convensão
-De preferencia em escrever a estrutura MVC e nome de colunas das tabelas em English.
+De preferência em escrever a estrutura MVC e nome de colunas das tabelas em inglês.
 - Um Model deve ser escrito no singular
-- 
+- O nome da tabela no plural.
+
 #### Scaffold
 No rails podemos gerar o CRUD através do generator scaffold.
 ```ruby
@@ -339,3 +340,33 @@ rails db:migrate
 # desfazer a execução das migrates
 rails db:rollback
 ``` 
+
+## ERB | Embedded Ruby
+Com ERB é possível mesclar texto HTML com código ruby.
+
+Documentação: http://ruby-doc.org/stdlib-2.4.0/libdoc/erb/rdoc/ERB.html
+
+Utilização do erb na view
+```
+# processar código ruby e imprimir no htlm
+<%= 1 + 1 %>
+
+# processar código ruby (não imprime no html)
+<% a = 1 + 2 %>
+```
+
+## Helpers
+São métodos prontos que podem ser utilizados nas views.
+
+Exemplos:
+```
+# helper para link a href _link_to_
+link_to "Cadastre-se", "/novo"
+
+# helper para link com o path da rota
+link_to "Cadastre-se", 
+
+# helper img src
+image_tag url
+
+```

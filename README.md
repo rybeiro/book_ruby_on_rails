@@ -1,19 +1,23 @@
-### Informações importantes Ruby
+# Informações importantes Ruby
 RVM - Ruby Version Manage
 https://rvm.io
 
 IRB - Interactive Ruby Shell é um REPL
 
 PRY é uma alternativa ao irb padrão
+```ruby
 gem install pry
+```
 
 Para ativar a coloração do pry no irb basta criar o arquivo .irbrc de configuração na home do usuário com as seguintes linhas:
+
 ```
 require 'rubygems'
 require 'pry'
 Pry.start
 exit
 ```
+
 #### Saída padrão - STDOUT
 puts
 
@@ -30,6 +34,7 @@ to_s -> para string
 if     -> testa se uma condição é verdadeira
 else   -> caso contrãrio
 unless -> testa se uma condição é falsa
+
 ```ruby
 x = 2
 if x > 1
@@ -60,21 +65,21 @@ sexo == 'M' ? (puts "Masculino") : (puts "Feminilo")
 ```
 
 ## Estrutura de repetição
-#### While (enquanto)
+### While (enquanto)
 ```ruby
 x = 5
 while i <= x do
 	puts i
 end
 ```
-#### each (cada)
+### each (cada)
 ```ruby
 (0..5).each do |i|
   puts i
 end
 ```
 
-## Array / Vetor
+# Array / Vetor
 ```ruby
 # criando uma array
 v = [1,3,5,7,9]
@@ -86,14 +91,16 @@ v1 = Array.new
 v1.push(4)
 ```
 
-## Hashes
+# Hashes
 É uma lista de chave/valor
+
 ```ruby
 # sintaxe
 h = {"a": "15", "b": "Fulano"}
 h = {"a" => "15", "b" => "Fulano"}
 ```
-## String
+
+# String
 A concatenação com o + gera uma nova instância na memória. Prefira utilizar a pá << para concaterar e outra opção é a interpolação utilizando #{}.
 ```ruby
 # exemplos
@@ -123,7 +130,7 @@ puts "#{e}  #{f}"
 puts e.object_id
 ```
 
-## Symbols
+# Symbols
 São comumente usados em Hashes e são muito usadas em situações que precisamos de um identificador imultável.
 ```ruby
 # exemplo: Cria uma nova instâncias a cada impressão
@@ -136,7 +143,7 @@ puts :nome.object_id
 puts :nome.object_id
 puts :nome.object_id
 ```
-## Classe
+# Classe
 ```ruby
 # criar uma classe
 class Pessoa
@@ -151,6 +158,7 @@ def initialize
 
 end
 ```
+
 ### self
 é o próprio objeto instânciado.
 ```ruby
@@ -178,6 +186,7 @@ puts p1.nome # getter
 
 ### Método estático
 No ruby é conhecido como método de classe e é precedido de self.
+
 ```ruby
 #exemplo de método de classe
 class Pessoa
@@ -185,11 +194,12 @@ class Pessoa
     n
   end
 end
+
 # exemplo de como chamar o método, sem instânciar.
 Pessoa.nome
 ```
 
-## Módulos e Mixins
+# Módulos e Mixins
 Rever a aula...
 
 # Gems
@@ -214,11 +224,13 @@ CpfUtils.cpf
 ```
 
 Criando o arquivo Gemfile com as gems para o projeto
+
 ```ruby
 source 'https://rubygems.org'
 gem 'cpf_ultis'
 ```
-#### Gems úteis
+
+### Gems úteis
 ```ruby
 gem 'cpf_utils' # recursos para cpf
 gem 'faker' # 
@@ -250,7 +262,7 @@ require_relative "nome_arquivo.rb"
 .chomp -> remove o \n da string para exibir o texto limpo.
 .object_id
 
-##### Documentação e apis Ruby
+## Documentação e apis Ruby
 Documentação: www.ruby-lang.org/pt/documentation
 
 Standard Library: / Core: http://ruby-doc.org
@@ -258,7 +270,7 @@ Standard Library: / Core: http://ruby-doc.org
 Api Dock: https://apidoc.com/ruby
 
 # Rails
-##### Documentação e apis Rails
+## Documentação e apis Rails
 Rails Guides: https://guides.rubyonrails.org
 
 Api: http://api.rubyonrails.org
@@ -267,7 +279,7 @@ Api Dock: https://apidock.com/rails
 
 no console execute rails para obter todas as opções do comando
 
-### Criando a aplicação e opcionalmente configurando o banco de dados
+## Criando a aplicação e opcionalmente configurando o banco de dados
 
 ```ruby
 # criando a aplicação com a versão definida.
@@ -282,7 +294,7 @@ rails _5.2_ new cripto_wallet --database=mysql
 # criando a aplicação com banco de dados
 rails new cripto_wallet --database=mysql
 ```
-#### Banco de Dados
+## Banco de Dados
 Arquivo de configuração fica localizado dentro de config/database.yml
 
 Pesquisar na internet por database.yml mysql
@@ -297,12 +309,12 @@ Pesquisar na internet por database.yml mysql
 #### Modelagem
 Modelagem de banco de dados é a base para criação do banco de dados.
 
-##### Convensão
+#### Convensão
 De preferência em escrever a estrutura MVC e nome de colunas das tabelas em inglês.
 - Um Model deve ser escrito no singular
 - O nome da tabela no plural.
 
-#### Scaffold
+## Scaffold
 No rails podemos gerar o CRUD através do generator scaffold.
 ```ruby
 rails generate scaffold <modelName> <campo:tipo>
@@ -314,11 +326,11 @@ rails generate scaffold Coin description:string
 rails g scaffold Coin description:string
 ```
 
-#### Migrations
-###### Rails dbconsole
+## Migrations
+##### Rails dbconsole
 Console de acesso ao banco  de dados
 
-###### Rails Tasks
+##### Rails Tasks
 São tarefas pré definidas para geração de scripts.
 
 Listar todas as Tasks disponíveis.
@@ -341,7 +353,7 @@ rails db:migrate
 rails db:rollback
 ``` 
 
-## ERB | Embedded Ruby
+# ERB | Embedded Ruby
 Com ERB é possível mesclar texto HTML com código ruby.
 
 Documentação: http://ruby-doc.org/stdlib-2.4.0/libdoc/erb/rdoc/ERB.html
@@ -355,7 +367,7 @@ Utilização do erb na view
 <% a = 1 + 2 %>
 ```
 
-## Helpers
+# Helpers
 São métodos prontos que podem ser utilizados nas views.
 
 Exemplos:
@@ -369,6 +381,21 @@ link_to "Cadastre-se",
 # helper img src
 image_tag url
 
+```
+
+## Helpers do usuário
+Helpers podem ser criados pelo usuário para facilitar o uso no sistema. Os helpers ficam disponíveis para todas as views.
+
+Localizado em _app/helpers_ 
+
+Exemplo simples:
+```ruby
+# helper para tratar as datas em todo sistema.
+# em app/helper/application.rb
+
+def date_br(date_us)
+  date_us.strftime('%d/%m/%Y')
+end
 ```
 
 # Ambientes Rails

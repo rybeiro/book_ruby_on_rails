@@ -316,6 +316,7 @@ De preferência em escrever a estrutura MVC e nome de colunas das tabelas em ing
 
 ## Scaffold
 No rails podemos gerar o CRUD através do generator scaffold.
+
 ```ruby
 rails generate scaffold <modelName> <campo:tipo>
 
@@ -376,11 +377,10 @@ Exemplos:
 link_to "Cadastre-se", "/novo"
 
 # helper para link com o path da rota
-link_to "Cadastre-se", 
+link_to "Cadastre-se", new_path
 
 # helper img src
 image_tag url
-
 ```
 
 ## Helpers do usuário
@@ -410,6 +410,7 @@ Subir o projeto em um determinado ambiente _RAILS_ENV=production_ ou _-e product
 Exibir todas as opções: _rails g_ ou _rails generator_
 
 Exemplo:
+
 ```ruby
 # Criar o controller
 rails g controllor teste
@@ -420,7 +421,51 @@ rails d controller teste
 As Views são criadas a partir da geração do controller passando as actions como parâmetro.
 
 Exemplo:
-````ruby
+
+```ruby
 # A view index será criada a partir do momento que informamos no gerador
 rails g controller teste index
+```
+
+# Routes - Rotas
+Documentação: http://guides.rubyonrails.org/routing.html
+
+São mapeados e utiliza-se do REST. Um verbo para cada ação do CRUD.
+
+O arquivo de configuração está localizado em app/config/route.rb
+
+### Route default | rota padrão
+Para definir um rota padrão devemos usar a instrução _root to_ 
+
+Exemplo definir outra página como default:
+```ruby
+# defini a rota default
+root to: 'welcome#index'
+
+# defini os sete recurso para a rota
+resource :photos
+```
+
+# Console
+Executar o _rails console_
+
+Para executar o rails em outro ambiente
+```ruby
+rails c -e production
+```
+
+Para executar o rails em modo sandbox para fazer alterações sem afetar a aplicação.
+```ruby
+rails c --sandbox
+```
+Exemplos de consultas pelo console
+- Objeto app
+- Objeto helper
+
+```ruby
+# fazer uma requisão via terminal para analisar
+rails c
+> app.get "/contacts"
+
+> helper.link_to "teste", "teste"
 ```

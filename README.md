@@ -469,3 +469,39 @@ rails c
 
 > helper.link_to "teste", "teste"
 ```
+
+## Model via console
+Podemos acessar interagir com a Model
+
+```ruby
+# acessando o console
+rails c
+
+# Retornando o primeiro registro
+Pessoa.first
+
+# Retornando o último registro
+Pessoa.last
+
+# Retornando todos os registros
+Pessoa.all
+```
+
+### Inserindo dados via console
+```ruby
+# inserindo dados com new
+pessoa = Pessoa.new
+pessoa.nome = "Maria"
+pessoa.sobrenome = "Carmem"
+pessoa.email = "maria.carmem@fake.com.br"
+pessoa.save!
+
+# inserindo com utilização do create
+Pessoa.create(
+  nome: "Maria",
+  sobrenome: "Carmem",
+  email: "maria.carmem@fake.com.br"
+)
+```
+
+

@@ -166,7 +166,8 @@ self.object_id
 ```
 
 ### Variáveis de instância
-As variáveis de instância podem ser identificadas pelo @ e estão disponíveis apenas para a instância
+As variáveis de instância podem ser identificadas pelo @ e estão disponíveis apenas para a instância. Esssa variáveis ficam disponíveis na view quando definidas no controller e a cada janela do browser a variável é única.
+
 ```ruby
 @nome = "Nome sobrenome"
 ```
@@ -503,5 +504,47 @@ Pessoa.create(
   email: "maria.carmem@fake.com.br"
 )
 ```
+# Identificando ambiente
+Para identificar o ambiente que a aplicação está podemos utilizar a seguinte instrução.
+```ruby
+# instrução para retornar o ambiente
+Rails.env
 
+# verificar o ambiente, exemplos
+Rails.env.production?
+Rails.env.developmente?
+```
 
+# Query params
+São parametros enviados pela url no formato chave/valor, verbo GET ou via POST.
+
+```ruby
+#formato
+http://localhost:3000?p=teste
+
+#para pegar os parametros na controller o rails gera um hash
+# está acessivel atraves do params
+params[:p]
+```
+
+# Partial templates
+Renderização de templates. Partial é uma forma de reutizar view em várias partes do projeto.
+
+```ruby
+# Para criar uma partial é obrigatório inciar com um underscore.
+# exemplo de nome
+_menu.html.erb
+
+# para renderizar basta chamar o arquivo com o render
+<%= render "menu" %>
+```
+
+# Layout
+O layout pode ser definido diretamente na controller. O novo layout deve ser criada no diretório layout e definido na controller. Não esquecer de passar o _yield_ localizado no layout/application.rb
+
+```ruby
+# incluir no controller logo após a class
+class ...
+ layout novo_layout
+def 
+```

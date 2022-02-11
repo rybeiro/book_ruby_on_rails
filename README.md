@@ -548,3 +548,5 @@ class ...
  layout novo_layout
 def 
 ```
+# Seeds
+Para criar uma seed basta criar um arquivo dentro do diretório db.

@@ -234,7 +234,7 @@ gem 'cpf_ultis'
 ### Gems úteis
 ```ruby
 gem 'cpf_utils' # recursos para cpf
-gem 'faker' # 
+gem 'faker' # gerar dados
 gem 'lerolero' # gerador de texto tipo lorem
 gem 'documentos_br'
 gem 'tty-spinner' # TTY Toobox
@@ -560,7 +560,7 @@ rails -T db
 # dev é o namespace e setup
 rails g task dev setup
 ```
-#### Comandos de terminal
+#### executando comandos do terminal
 ```ruby
 # %x() executa comandos do terminal de dentro do ruby
 puts %x(ls)

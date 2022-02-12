@@ -549,4 +549,20 @@ class ...
 def 
 ```
 # Seeds
-Para criar uma seed basta criar um arquivo dentro do diretório db.
+```ruby
+# Para visualizar todas as task
+rails -T
+
+# filtrar as tasks existentes
+rails -T db
+
+# Criar novas tasks
+# dev é o namespace e setup
+rails g task dev setup
+```
+#### Comandos de terminal
+```ruby
+# %x() executa comandos do terminal de dentro do ruby
+puts %x(ls)
+```
+

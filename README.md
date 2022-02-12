@@ -407,7 +407,7 @@ Documentação: http://guides.rubyonrails.org/configuring.html#creating-rails-en
 
 Subir o projeto em um determinado ambiente _RAILS_ENV=production_ ou _-e production_
 
-# Generator
+# Generator | Model | Controller e Views
 Exibir todas as opções: _rails g_ ou _rails generator_
 
 Exemplo:
@@ -471,7 +471,7 @@ rails c
 > helper.link_to "teste", "teste"
 ```
 
-## Model via console
+## Interagindo via console
 Podemos acessar interagir com a Model
 
 ```ruby
@@ -566,3 +566,52 @@ rails g task dev setup
 puts %x(ls)
 ```
 
+# Yield
+Deve ser utilizado para executar um bloco de código.
+```ruby
+contact_actions('Listando diretórios', 'Concluído') do
+	%x(ls -l)
+end
+
+contact_actions('Exibindo o caminho absoluto do diretório atual', 'Concluído') do
+	%x(pwd)
+end
+
+def contact_actions(msg_start, msg_end)
+	puts msg_start
+	yield
+	puts msg_end
+end
+```
+
+# Model
+Algumas métodos do ActiveRecord
+```ruby
+# create! | Insere dados na tabela do banco de dados e se houver algum problema exibe o erro
+create!()
+
+# find_or_create_by! | Procura antes de inserir. Se já existir não insere.
+find_or_create_by!()
+```
+
+# Criando o projeto agenda de contatos
+```ruby
+# Criando o app
+rails new book --database=mysql
+
+# Criando o database
+rails db:create
+
+# Gerando o CRUD com scaffold
+rails g scaffold Contact
+
+# Criando a tabela
+rails db:migrate
+
+# Criar as seeds
+rails g task dev setup
+
+# Dentro de lib/task/dev.rake criar dados para iniciais para teste
+# depois executar a seed
+rails db:seed
+```

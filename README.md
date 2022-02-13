@@ -322,25 +322,24 @@ No rails podemos gerar o CRUD através do generator scaffold.
 rails generate scaffold <modelName> <campo:tipo>
 
 # Exemplo
-rails generate scaffold Coin description:string
+rails generate scaffold Test description:string
 
 # ou 
-rails g scaffold Coin description:string
+rails g scaffold Test description:string
 ```
 
-## Migrations
-##### Rails dbconsole
-Console de acesso ao banco  de dados
-
-##### Rails Tasks
-São tarefas pré definidas para geração de scripts.
-
-Listar todas as Tasks disponíveis.
+Caso tenha que remover os arquivos criados com scaffold
 ```ruby
-rails -T
+rails destroy scaffold Test
+
+# ou 
+rails d scaffold Test
 ```
+
+# Migrations
 
 Algumas operações com banco de dados.
+
 ```ruby
 # criar um banco de dados
 rails db:create
@@ -351,9 +350,35 @@ rails db:drop
 # executar as migrations
 rails db:migrate
 
-# desfazer a execução das migrates
+# desfazer a execução da última versão, também é possível definir quantos passos quer voltar
 rails db:rollback
-``` 
+```
+
+## Migration Standalone
+São recurso para gerar alterações nas tabelas. Existe um padrão para os nomes das alterações.
+
+```ruby
+# Exemplo de inclusão de uma coluna na tabela Contacts
+# Adicionar coluna AddGenderToContacts gender:string
+# AddGenderToContacts é o nome da migration seguido das colunas que serão incluídas.
+rails g migration AddGenreToContacts genre:string
+
+# Exemplo de inclusão de uma coluna que faz relacionamento
+# AddGenderToContacts genre:references
+# O tipo references gera o relacionamento entre a Tabela Contacts e Genres
+rails g migration AddGenderToContacts gender:references
+```
+
+##### Rails dbconsole
+Console de acesso ao banco  de dados
+
+##### Rails Tasks
+São tarefas pré definidas para geração de scripts.
+
+Listar todas as Tasks disponíveis.
+```ruby
+rails -T
+```
 
 # ERB | Embedded Ruby
 Com ERB é possível mesclar texto HTML com código ruby.

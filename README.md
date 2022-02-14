@@ -619,6 +619,13 @@ create!()
 find_or_create_by!()
 ```
 
+## Relacionamentos
+belongs_to -> Pertence á ... | has_many -> Tem muitos
+
+Quando é configurado o relacionamento na Model passa a ser obrigatório ao criar um novo registro. Temos como evitar isso com a seguinte opção:
+
+_optional :true_ é uma opção para não exigir ao gravar que a coluna do relacionamento seja obrigatório.
+
 # Criando o projeto agenda de contatos
 ```ruby
 # Criando o app
@@ -630,13 +637,13 @@ rails db:create
 # Gerando o CRUD com scaffold
 rails g scaffold Contact
 
-# Criando a tabela
+# Criando as tabelas
 rails db:migrate
 
 # Criar as seeds
 rails g task dev setup
 
-# Dentro de lib/task/dev.rake criar dados para iniciais para teste
+# Dentro de lib/task/dev.rake criar dados para iniciar o dev
 # depois executar a seed
 rails db:seed
 ```
